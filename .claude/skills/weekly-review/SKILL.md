@@ -23,8 +23,8 @@ This skill drafts the review the manager sends to their team each Monday. It rea
 
 Use `tracker.csv`. Leave out the example row A-0000 and any row whose Notes contain `[private]`. Put each action in exactly one group, using the first group it fits:
 
-1. **Done:** Status `done` and the "done" note is dated within the week. If it was also raised this week, add "(new this week)".
-2. **Dropped:** Status `dropped` and the "dropped" note is dated within the week.
+1. **Done:** Status `done` and Date closed is within the week. If it was also raised this week, add "(new this week)".
+2. **Dropped:** Status `dropped` and Date closed is within the week.
 3. **Slipped:** Status `open` and either the Due date is on or before the Sunday that ends the week, or a "due moved" note is dated within the week. Show the original due date.
 4. **Committed this week:** Status `open` and Date raised is within the week.
 5. **Still open:** every other open action.

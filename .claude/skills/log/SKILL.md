@@ -52,7 +52,7 @@ If the manager says an action has no date, leave Due blank. If they say to skip 
 
 ## 6. Show the preview
 
-Use the change preview format from CLAUDE.md. Include the new conversation, new actions with their IDs, changed actions showing old → new, and anything you left out. End with: Reply "yes" to save, or tell me what to change.
+Use the change preview format from CLAUDE.md. Include the new conversation, new actions with their IDs, changed actions showing old → new (with the Date closed for anything closed), and anything you left out. End with: Reply "yes" to save, or tell me what to change.
 
 If the manager asks for changes, make them and show the preview again.
 
@@ -62,8 +62,10 @@ Only after the manager says yes, save as described under "Saving changes" in CLA
 
 - Add the conversation entry at the end of `conversations.md`, ending with a `---` line.
 - Add new rows at the end of `tracker.csv`.
+- New rows have Status `open` and a blank Date closed.
 - For changed rows: update Status or Due, and add a note in the standard wording, for example `2026-11-06: done (C-0015)` or `2026-11-06: due moved from 2026-11-07 to 2026-11-14 (C-0015)`.
-- Check the tracker is still valid CSV with nine columns on every row.
+- Whenever Status becomes `done` or `dropped`, fill Date closed: the date it was actually finished or dropped if the material says ("sent it on Tuesday"), otherwise the conversation date. If a closed action is reopened, set Status back to `open`, clear Date closed and add a `reopened` note.
+- Check the tracker is still valid CSV with ten columns on every row.
 
 Then confirm in one line, for example: "Saved C-0015 with 2 new actions (A-0042, A-0043) and 2 updates (A-0029, A-0031)."
 

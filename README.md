@@ -162,7 +162,7 @@ A long history can take a while. If you stop part way, type `/import` again late
 
 - **Nothing is ever sent.** Claude only drafts. You send.
 - **You approve every change** to your records before it is saved.
-- **Nothing is deleted.** Finished actions are marked `done` or `dropped` and stay in the tracker as history.
+- **Nothing is deleted.** Finished actions are marked `done` or `dropped`, with the date they were closed, and stay in the tracker as history.
 - **Opening the tracker in Excel:** viewing is fine. If you save it from Excel, Excel may change the dates to its own format. Save it as CSV and check that dates still read like 2026-11-07, or ask Claude to make the change instead.
 - **The examples:** the entries C-0000 and A-0000 are invented examples. Claude ignores them. Delete them whenever you like.
 - **Spelling:** this guide uses British English. To have Claude write your drafts in US spelling, change "Spelling for drafts" in the settings at the top of `CLAUDE.md` to "US English" (and, in a Project, paste the updated instructions in again).
