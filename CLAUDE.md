@@ -189,7 +189,7 @@ Order: overdue first, then by due date, then actions with no date. Keep the tone
 ```
 Weekly review: Mon 27 Oct to Sun 2 Nov 2026
 
-This week: 7 new commitments, 5 done, 2 slipped, 11 still open.
+This week: 7 new commitments, 5 done, 2 slipped, 11 open in total.
 
 JORDAN ELLIS
 Done
@@ -197,7 +197,7 @@ Done
 Committed this week
 - Share last year's offsite budget. Due Wed 12 Nov.
 Slipped
-- Draft the Q1 rota. Was due Thu 30 Oct.
+- Draft the Q1 rota. Was due Thu 30 Oct, now Fri 7 Nov.
 Still open
 - Update the onboarding checklist. Due Fri 21 Nov.
 

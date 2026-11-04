@@ -42,6 +42,7 @@ Above the drafts, add a short note only the manager sees, covering anything usef
 - "Jordan was last chased on Mon 3 Nov, two days ago."
 - "A-0017 for Sam is marked [check] and is left out of the message."
 - "Priya has nothing open."
+- The manager's own overdue actions, since they are never chased.
 
 ## 5. Update "Last chased"
 

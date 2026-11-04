@@ -166,5 +166,6 @@ A long history can take a while. If you stop part way, type `/import` again late
 - **Opening the tracker in Excel:** viewing is fine. If you save it from Excel, Excel may change the dates to its own format. Save it as CSV and check that dates still read like 2026-11-07, or ask Claude to make the change instead.
 - **The examples:** the entries C-0000 and A-0000 are invented examples. Claude ignores them. Delete them whenever you like.
 - **Spelling:** this guide uses British English. To have Claude write your drafts in US spelling, change "Spelling for drafts" in the settings at the top of `CLAUDE.md` to "US English" (and, in a Project, paste the updated instructions in again).
+- **Changing the instructions:** Claude Code reads `CLAUDE.md` and the skill files when a session starts. If you edit them yourself, close Claude Code and open it again (or start a new session in the desktop app) before relying on the change.
 - **Backups:** keep a copy of the `records` folder somewhere your company approves, such as your work OneDrive.
 - **Automation:** `automation.md` explains how to have the Monday review drafted automatically and how to have chase messages drafted into Outlook or Slack. Nothing in it is switched on unless you set it up.

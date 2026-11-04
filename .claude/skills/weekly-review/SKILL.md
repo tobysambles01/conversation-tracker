@@ -21,11 +21,18 @@ This skill drafts the review the manager sends to their team each Monday. It rea
 
 ## 3. Sort each person's actions
 
-Use `tracker.csv`. Leave out the example row A-0000 and any row whose Notes contain `[private]`. Put each action in exactly one group, using the first group it fits:
+Use `tracker.csv`. Leave out the example row A-0000 and any row whose Notes contain `[private]`.
+
+Describe the week as it stood at the end of its Sunday, even if you are running the review later:
+
+- Leave out actions with a Date raised after that Sunday.
+- Treat an action whose Date closed is after that Sunday as still open for this review.
+
+Then put each action in exactly one group, using the first group it fits:
 
 1. **Done:** Status `done` and Date closed is within the week. If it was also raised this week, add "(new this week)".
 2. **Dropped:** Status `dropped` and Date closed is within the week.
-3. **Slipped:** Status `open` and either the Due date is on or before the Sunday that ends the week, or a "due moved" note is dated within the week. Show the original due date.
+3. **Slipped:** Status `open` and either the Due date is on or before the Sunday that ends the week, or a "due moved" note is dated within the week. Show the original due date, and the new one if it was moved: "Was due Fri 30 Oct, now Fri 6 Nov."
 4. **Committed this week:** Status `open` and Date raised is within the week.
 5. **Still open:** every other open action.
 
@@ -33,7 +40,7 @@ Use `tracker.csv`. Leave out the example row A-0000 and any row whose Notes cont
 
 Use the weekly review format in CLAUDE.md:
 
-- One line at the top with the totals: new commitments, done, slipped, still open.
+- One line at the top with the totals across everyone in the review: new commitments (the Committed this week group plus anything marked "new this week"), done, slipped, and open in total (every action still open at the end of the week, whichever group it is in).
 - One section per person, name in capitals. Inside it: Done, Committed this week, Slipped, Still open, Dropped. Leave out any heading with nothing under it. If a person had nothing at all, write "Nothing logged this week."
 - Each action on one line, starting with a verb, with its due date written like "Fri 7 Nov".
 - Plain text only, so it pastes cleanly into email or Slack.

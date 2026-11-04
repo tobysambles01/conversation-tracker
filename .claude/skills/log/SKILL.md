@@ -35,7 +35,7 @@ Read `conversations.md` and `tracker.csv`. Note:
 - **Who:** everyone who took part, full names in the form already used in the records, the manager included.
 - **Summary:** three to six sentences on what was discussed and decided.
 - **Notes as written:** typed notes exactly as written; for a transcript, the key points with speaker names and short quotes for decisions and promises.
-- **Commitments:** every promise to do something, by anyone, including the manager. Write each one starting with a verb. Work out due dates from the conversation date ("by Friday" means the Friday on or after that date).
+- **Commitments:** every promise to do something, by anyone, including the manager. Write each one starting with a verb. Work out due dates from the conversation date ("by Friday" means the Friday on or after that date). Things already done work backwards: "sent it Weds" means the Wednesday on or before the conversation date.
 - **Updates to earlier actions:** anything in the material that finishes, drops or moves the deadline of an open action. Only match an existing action when it is clearly the same thing; if you are not sure, ask.
 
 ## 5. Ask about anything unclear
