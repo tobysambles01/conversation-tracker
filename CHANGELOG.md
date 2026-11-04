@@ -2,6 +2,15 @@
 
 All notable changes to this template are listed here, newest first.
 
+## 1.1.0 · 2026-11-04
+
+- `records/tracker.csv`: new **Date closed** column after Status, filled when an action becomes done or dropped and cleared if it is reopened. The example row shows it filled.
+- `weekly-review`: uses Date closed to decide what was done or dropped in the week. Describes the week as it stood on its Sunday, so a review run later in the week no longer loses actions closed after the Sunday or includes actions raised after it. The totals line now gives "open in total" instead of a confusing "still open" count, and moved deadlines show both dates.
+- `log` and `import`: write Date closed. `log` now works out past days ("sent it Weds") backwards from the conversation date.
+- `chase`: the notes for the manager mention their own overdue actions.
+- `README.md`: after editing the instructions or a skill, start a new Claude Code session.
+- Tested with invented data: `/log` for two people, `/chase` and `/weekly-review`.
+
 ## 1.0.0 · 2026-11-04
 
 First version.
