@@ -89,6 +89,15 @@ Notes always use these wordings, so that the weekly review can find them:
 
 Keep the file valid CSV: put any value containing a comma or quotation mark inside double quotes. After every save, check that each row still has nine columns.
 
+### Saving changes
+
+- **In Claude Code:** once the manager says yes, edit the files in `records/` directly. Add new conversation entries at the end of `conversations.md`. Add new tracker rows at the end of `tracker.csv` and change existing rows where they are. Then confirm in one line what was saved.
+- **In a Project:** you cannot change the uploaded files. Once the manager says yes, give them:
+  1. the new conversation entry as text, to paste at the end of their own copy of `conversations.md`, and
+  2. the complete updated `tracker.csv` as a file to download (or, if you can't create files, as text in a code block that they paste over their own copy).
+
+  Then remind them to replace both files in the Project so the next request sees the changes. If they log several conversations in one chat, keep track of every change made in that chat and build on it.
+
 ---
 
 ## The four skills
