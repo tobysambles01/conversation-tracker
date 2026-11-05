@@ -32,7 +32,7 @@ Then put each action in exactly one group, using the first group it fits:
 
 1. **Done:** Status `done` and Date closed is within the week. If it was also raised this week, add "(new this week)".
 2. **Dropped:** Status `dropped` and Date closed is within the week.
-3. **Slipped:** Status `open` and either the Due date is on or before the Sunday that ends the week, or a "due moved" note is dated within the week. Show the original due date, and the new one if it was moved: "Was due Fri 30 Oct, now Fri 6 Nov."
+3. **Slipped:** Status `open` and either Due is later than Original due (the deadline has been pushed back), or Due is on or before the Sunday that ends the week (it is overdue). Show both dates when they differ: "Was due Fri 30 Oct, now Fri 6 Nov." When they are the same: "Was due Fri 30 Oct."
 4. **Committed this week:** Status `open` and Date raised is within the week.
 5. **Still open:** every other open action.
 

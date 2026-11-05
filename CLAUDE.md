@@ -74,7 +74,8 @@ One row per action. Rows are never deleted: finished actions stay with status `d
 | Action | What they will do, starting with a verb. |
 | Date raised | The date they committed to it (YYYY-MM-DD). |
 | Source conversation | The conversation ID, for example C-0012. For imported rows with no matching conversation: "Imported from sheet". |
-| Due | YYYY-MM-DD, or blank if the manager confirmed there is no date. |
+| Due | The current due date (YYYY-MM-DD), or blank if the manager confirmed there is no date. Changes when a deadline is moved. |
+| Original due | The first due date the action ever had (YYYY-MM-DD). Set once, at the moment the action first gets a due date (blank until then), and never changed after that, even when Due moves. |
 | Status | Exactly one of: `open`, `done`, `dropped`. |
 | Date closed | Blank while the action is open. Filled (YYYY-MM-DD) when Status becomes `done` or `dropped`: the date it was actually finished or dropped if the notes or transcript say, otherwise the date of the conversation where it was reported. If an action is reopened, clear it. |
 | Last chased | The date the manager last chased this action (YYYY-MM-DD), or blank. |
@@ -85,11 +86,11 @@ The weekly review uses Date closed to decide what was done or dropped in a given
 - `2026-11-06: done (C-0014)` when an action is finished (and Date closed is filled).
 - `2026-11-06: dropped (C-0014) reason` when an action is abandoned (and Date closed is filled).
 - `2026-11-06: reopened (C-0014)` when a closed action turns out not to be finished (and Date closed is cleared).
-- `2026-11-06: due moved from 2026-11-07 to 2026-11-14 (C-0014)` when a deadline changes.
+- `2026-11-06: due moved from 2026-11-07 to 2026-11-14 (C-0014)` when a deadline changes (Due changes; Original due does not).
 - `[private]` anywhere in the notes keeps the action out of the weekly review (it can still appear in that person's own chase message).
 - `[check] reason` marks something the manager still needs to confirm, such as an unclear owner or a possible duplicate.
 
-Keep the file valid CSV: put any value containing a comma or quotation mark inside double quotes. After every save, check that each row still has ten columns.
+Keep the file valid CSV: put any value containing a comma or quotation mark inside double quotes. After every save, check that each row still has eleven columns.
 
 ### Saving changes
 
@@ -162,7 +163,7 @@ NEW ACTIONS
 
 CHANGED ACTIONS
 - A-0031 Jordan Ellis: Send the revised hiring plan. Status open → done, closed Mon 3 Nov.
-- A-0029 Sam Okafor: Draft the training schedule. Due Fri 7 Nov → Fri 21 Nov.
+- A-0029 Sam Okafor: Draft the training schedule. Due Fri 7 Nov → Fri 21 Nov (original due stays Fri 7 Nov).
 
 NOT RECORDED
 - Personal matter discussed at the start (left out of the summary).

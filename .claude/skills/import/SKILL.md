@@ -26,7 +26,7 @@ If an earlier import was interrupted, find the latest imported conversation (Sou
 ## 3. Read the originals
 
 - **Word document:** in a Project, read the attachment. In Claude Code, if you can't read a .docx directly, extract its text into a temporary file outside this folder using whatever is available on the computer. If that is not possible, ask the manager to open the document in Word and use File → Save a Copy → Plain Text (.txt), keeping the original.
-- **Sheet export:** read the .csv. Work out which column holds what: person, action, date raised, due date, status, date completed or closed, last chased, notes, and anything else.
+- **Sheet export:** read the .csv. Work out which column holds what: person, action, date raised, due date, original or first due date, status, date completed or closed, last chased, notes, and anything else.
 
 ## 4. Report what you found and agree the ground rules
 
@@ -47,13 +47,14 @@ For each batch:
 1. **Conversations:** one entry per meeting in the Word document, in the layout from CLAUDE.md. Source is "typed notes (imported from Word document)". Logged is today's date. Put the original notes, in full and unaltered, under "Notes as written", and write a short Summary. Nothing from the document is dropped.
 2. **Commitments:** pull out each promise from the notes, as in the log skill, and give each a tracker row.
 3. **Sheet rows:** for each sheet row in this batch's date range, look for the same action among the commitments just pulled out (same person, similar wording, close dates). If it matches, fill the tracker row from both and link it to that conversation. If not, add it with Source conversation "Imported from sheet".
-4. **Closed actions:** set Status from the agreed mapping. For done or dropped rows, fill Date closed with the best date available: a completion date in the sheet, or the date of the meeting where the notes say it was finished. If there is none, leave Date closed blank and add `date closed not recorded` to Notes (not a `[check]`: old history often has no dates, and it only matters for recent weeks). Add a note in the standard wording too. Leave out dropped actions if the manager asked you to.
-5. **Flags:** anything uncertain gets `[check]` in Notes with the reason, so it can be found later:
+4. **Due dates:** Due is the latest due date the records give. Original due is the first one you can find: an "original deadline" column in the sheet if there is one, or the earliest due date mentioned in the notes, or else the same as Due. If the action has no due date at all, leave both blank.
+5. **Closed actions:** set Status from the agreed mapping. For done or dropped rows, fill Date closed with the best date available: a completion date in the sheet, or the date of the meeting where the notes say it was finished. If there is none, leave Date closed blank and add `date closed not recorded` to Notes (not a `[check]`: old history often has no dates, and it only matters for recent weeks). Add a note in the standard wording too. Leave out dropped actions if the manager asked you to.
+6. **Flags:** anything uncertain gets `[check]` in Notes with the reason, so it can be found later:
    - `[check] possible duplicate of A-0123`: the same action appears twice (twice in the sheet, or in the sheet and the notes in ways you couldn't match for certain, or already in the records). Do not merge these without the manager's say-so.
    - `[check] owner unclear: "we'll get the deck to finance"`: no clear owner. Person is "Unclear".
    - `[check] date unclear`: a due date that couldn't be worked out.
-6. **Preview:** show a batch summary rather than every line: the date range, the counts of new conversations, new actions, done, dropped and still open, and then every flagged item listed in full with a suggested answer. Offer to show the full detail. Ask "Save this batch?"
-7. **Save** when the manager says yes, as described under "Saving changes" in CLAUDE.md. Apply any answers they gave to the flags and remove the `[check]` from those. Then move on to the next batch.
+7. **Preview:** show a batch summary rather than every line: the date range, the counts of new conversations, new actions, done, dropped and still open, and then every flagged item listed in full with a suggested answer. Offer to show the full detail. Ask "Save this batch?"
+8. **Save** when the manager says yes, as described under "Saving changes" in CLAUDE.md. Apply any answers they gave to the flags and remove the `[check]` from those. Then move on to the next batch.
 
 ## 6. Finish
 

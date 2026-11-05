@@ -1,2 +1,2 @@
-ID,Person,Action,Date raised,Source conversation,Due,Status,Date closed,Last chased,Notes
-A-0000,Jordan Ellis,Send the revised hiring plan to finance,2026-11-03,C-0000,2026-11-07,done,2026-11-06,2026-11-05,"2026-11-03: example row, ignored by Claude; delete it once you have your own rows / 2026-11-06: done (example: this is where the conversation ID that reported it goes)"
+ID,Person,Action,Date raised,Source conversation,Due,Original due,Status,Date closed,Last chased,Notes
+A-0000,Jordan Ellis,Send the revised hiring plan to finance,2026-11-03,C-0000,2026-11-07,2026-11-07,done,2026-11-06,2026-11-05,"2026-11-03: example row, ignored by Claude; delete it once you have your own rows / 2026-11-06: done (example: this is where the conversation ID that reported it goes)"
