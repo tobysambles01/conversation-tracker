@@ -183,7 +183,7 @@
   </li>
   <li>
     <p>Right-click the ZIP file and choose <strong>Extract All</strong>. In the box that opens, change the destination to your <strong>Documents</strong> folder, then click <strong>Extract</strong>.</p>
-    <p class="see"><strong>You will see:</strong> a new folder in Documents called <span class="type">conversation-tracker-main</span>, containing <span class="type">README.md</span>, <span class="type">CLAUDE.md</span>, <span class="type">setup-guide.html</span>, and folders called <span class="type">records</span> and <span class="type">notes</span>. One more folder, <span class="type">.claude</span>, is there but hidden; that is normal.</p>
+    <p class="see"><strong>You will see:</strong> a new folder in Documents called <span class="type">conversation-tracker-main</span>, containing <span class="type">README.md</span>, <span class="type">CLAUDE.md</span>, <span class="type">setup-guide.html</span>, <span class="type">project-setup.md</span>, and folders called <span class="type">records</span> and <span class="type">notes</span>. A folder called <span class="type">.claude</span> and a file called <span class="type">.gitignore</span> are there but hidden; that is normal.</p>
   </li>
   <li>
     <p>If you like, rename the folder to <span class="type">conversation-tracker</span>. Either name works.</p>
@@ -202,7 +202,7 @@
     <p class="see"><strong>You will see:</strong> Claude confirming the settings are written. If you open <span class="type">CLAUDE.md</span>, the Settings section near the top shows your details and no square brackets.</p>
   </li>
 </ol>
-<div class="note">Everything in <span class="type">records</span> and <span class="type">notes</span> is about your staff. It stays on your laptop. Never upload this folder to GitHub, a shared drive that others can see, or anywhere public. A copy in your own work OneDrive as a backup is fine if your company allows it.</div>
+<div class="note">Everything in <span class="type">records</span> and <span class="type">notes</span> is about your staff. It stays on your laptop. Never upload this folder to GitHub, a shared drive that others can see, or anywhere public, and always get the files as a ZIP: never connect this folder to git, even if you know how. A copy in your own work OneDrive as a backup is fine if your company allows it.</div>
 
 <h2 id="import">3. First run: bring in your history</h2>
 <p>Do this once. It brings your whole history of meetings and actions across, oldest first, in batches that you approve one at a time. A long history takes a while; you can stop and carry on later.</p>
@@ -338,7 +338,7 @@
   <dd>Check the file is inside the <span class="type">notes</span> folder and that you typed its name exactly, including the ending (.docx, .txt, .vtt or .csv). An old-style Word file ending in .doc needs saving as .docx first: <strong>File → Save a Copy → Word Document (.docx)</strong>. For a .docx file Claude may ask permission to unzip a temporary copy; allow it. If it still fails, open the document in Word and save a copy as <strong>Plain Text (.txt)</strong> into <span class="type">notes</span>.</dd>
 
   <dt>The Code tab says Claude Code is not available</dt>
-  <dd>Claude Code is not enabled for your account. Ask your Claude admin to enable it (section 1, step 1). Nothing else is wrong.</dd>
+  <dd>Claude Code is not enabled for your account. Ask your Claude admin to enable it (section 1, step 1). Nothing else is wrong. If it can't be enabled, <span class="type">project-setup.md</span> in the folder explains the fallback: a claude.ai Project. It needs more manual steps and is less tested.</dd>
 
   <dt>Claude asks for permission</dt>
   <dd>Claude Code asks before it edits files in your folder or runs a step on your laptop. Allowing it to edit <span class="type">records</span> and <span class="type">CLAUDE.md</span> is normal. It should never ask to send an email or a message; if it ever does, say no and tell it to give you the text instead.</dd>

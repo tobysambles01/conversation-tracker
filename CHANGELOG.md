@@ -2,6 +2,11 @@
 
 All notable changes to this template are listed here, newest first.
 
+## 1.4.0 · 2026-11-05
+
+- `.gitignore`: ignores everything in `notes/` apart from its README. `records/` can't be ignored because the blank templates ship in it, so `README.md` now says a copy in use must never be connected to git, and the ZIP is the only route given (the `git clone` hint is gone).
+- `project-setup.md`: the claude.ai Project setup moved here from `README.md`, marked as the fallback and less tested, with how to attach files in place of `notes/`. `README.md` has a one-line pointer and lists the file; `setup-guide.html` mentions it where Claude Code can't be enabled.
+
 ## 1.3.0 · 2026-11-05
 
 - `setup-guide.html`: a step-by-step setup guide for the manager, readable on a phone and printable, with a "you will see" check on every step.

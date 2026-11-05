@@ -20,6 +20,7 @@ This is a template. Every name in it is invented.
 |---|---|
 | `README.md` | This guide. |
 | `setup-guide.html` | A step-by-step setup guide you can open in your browser or print. Same content as this guide, one step at a time. |
+| `project-setup.md` | The fallback if you can't use Claude Code: setting this up in a claude.ai Project instead. Less tested. |
 | `CLAUDE.md` | The instructions Claude follows. You fill in a few settings at the top. |
 | `records/conversations.md` | Your log of conversations, one entry each. |
 | `records/tracker.csv` | Your list of actions, one row each. Opens in Excel. |
@@ -28,8 +29,9 @@ This is a template. Every name in it is invented.
 | `automation.md` | How to have the Monday review drafted for you automatically, and how to have chase messages drafted into Outlook or Slack. |
 | `CHANGELOG.md` | What has changed in this template. |
 | `LICENSE` | The legal terms for reusing this template. You can ignore it. |
+| `.gitignore` | A hidden file that stops git from picking up anything in `notes/`. You can ignore it. |
 
-The `.claude` folder starts with a dot, so your computer may hide it. On Windows, in File Explorer choose View → Show → Hidden items. On a Mac, in Finder press Command + Shift + full stop.
+The `.claude` folder and `.gitignore` start with a dot, so your computer may hide them. On Windows, in File Explorer choose View → Show → Hidden items. On a Mac, in Finder press Command + Shift + full stop.
 
 ---
 
@@ -39,13 +41,13 @@ Once you start using this, the files in `records/` and `notes/` will hold notes 
 
 ---
 
-## Setup, option 1: Claude Code (recommended)
+## Setup
 
 Claude Code runs on your laptop and works directly on the files in this folder, so your records update themselves when you approve a change.
 
 You will need Claude Code on your laptop and switched on for your Enterprise account. If you don't have it, ask your IT team or Claude admin.
 
-1. **Get the files.** Go to https://github.com/tobysambles01/conversation-tracker, click the green **Code** button, then **Download ZIP**. In your Downloads folder, right-click the ZIP and choose **Extract All**, and extract it into your Documents folder. You get a folder called `conversation-tracker-main`; rename it to `conversation-tracker` if you like. (If you already use git, `git clone` the same address instead.)
+1. **Get the files.** Go to https://github.com/tobysambles01/conversation-tracker, click the green **Code** button, then **Download ZIP**. In your Downloads folder, right-click the ZIP and choose **Extract All**, and extract it into your Documents folder. You get a folder called `conversation-tracker-main`; rename it to `conversation-tracker` if you like. Use the ZIP even if you know git: your copy must never be connected to git (see "Updating the template").
 2. **Open Claude Code in the folder.** In the Claude desktop app, open the **Code** tab and choose the folder you just extracted. The first time, sign in with your work account. Near where you type there is a model menu: pick the most capable model your company gives you. (If you use Claude Code in a terminal instead, go to the folder and type `claude`.)
 3. **Fill in your settings.** Type: `Help me fill in the settings in CLAUDE.md`. Claude asks for your name, your team's names, your preferred spelling and your sign-off, then writes them in. (You can also open `CLAUDE.md` in any text editor and fill in the square brackets yourself.)
 4. **Import your history** if you have some. See "Importing your history" below.
@@ -59,30 +61,7 @@ From then on you use four commands. Type them where you talk to Claude:
 | `/weekly-review` | Draft the Monday review for last week. |
 | `/import` | Bring in your old Word document and Google Sheet. |
 
----
-
-## Setup, option 2: a claude.ai Project
-
-Use this if you can't use Claude Code. It uses the same files. The difference is that Claude can't change files inside a Project, so after each update you swap in the new versions it gives you (about a minute's work).
-
-1. **Get the files.** On the GitHub page, click the green **Code** button, then **Download ZIP**, and unzip it on your laptop. Keep this folder: it holds your master copy of the records.
-2. **Fill in your settings.** Open `CLAUDE.md` in a text editor and fill in the square brackets at the top: your name, your team, spelling and sign-off. Save it.
-3. **Create the Project.** On claude.ai, go to **Projects**, then **Create project**. Call it something like "Conversation tracker".
-4. **Add the instructions.** Open the Project's instructions and paste in the whole of `CLAUDE.md`.
-5. **Upload six files** to the Project's files (knowledge):
-   - `records/conversations.md`
-   - `records/tracker.csv`
-   - `.claude/skills/log/SKILL.md`
-   - `.claude/skills/chase/SKILL.md`
-   - `.claude/skills/weekly-review/SKILL.md`
-   - `.claude/skills/import/SKILL.md`
-
-   The four skill files share the same file name. That is fine: each one starts with its own name. If claude.ai won't accept a second file with the same name, rename your uploaded copies to `log.md`, `chase.md`, `weekly-review.md` and `import.md` first.
-6. **Turn on file creation** if your account offers it (Settings → Capabilities), so Claude can hand you updated files to download.
-
-In a Project you type the same words, with or without the slash: `log`, `chase`, `chase Jordan`, `weekly review`, `import`.
-
-**After each change**, Claude gives you the new conversation entry and an updated `tracker.csv`. Paste the entry at the end of your own `conversations.md`, replace your own `tracker.csv` with the new one, then in the Project delete the two old files and upload the new ones. If you skip this, the next chat won't know about the change.
+If you can't use Claude Code, `project-setup.md` explains the fallback, a claude.ai Project; it needs more manual steps and is less tested.
 
 ---
 
