@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup guide</title>
+<meta name="description" content="Step-by-step setup for the conversation tracker, written for a manager with no technical background.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1f2328;
+    --muted: #59636e;
+    --line: #d9dee3;
+    --see-bg: #eef6ee;
+    --see-line: #4a8a4a;
+    --see-text: #1d4d1d;
+    --type-bg: #f3f4f6;
+    --warn-bg: #fff6e5;
+    --warn-line: #c98a1a;
+    --link: #0b57d0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121417;
+      --text: #e6e8eb;
+      --muted: #9aa3ad;
+      --line: #2f353c;
+      --see-bg: #16281a;
+      --see-line: #5fae5f;
+      --see-text: #c6e7c6;
+      --type-bg: #1e2329;
+      --warn-bg: #2a2215;
+      --warn-line: #d9a23a;
+      --link: #7ab0ff;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417;
+    --text: #e6e8eb;
+    --muted: #9aa3ad;
+    --line: #2f353c;
+    --see-bg: #16281a;
+    --see-line: #5fae5f;
+    --see-text: #c6e7c6;
+    --type-bg: #1e2329;
+    --warn-bg: #2a2215;
+    --warn-line: #d9a23a;
+    --link: #7ab0ff;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    padding: 24px 16px 64px;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.55 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 42rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .25rem; }
+  h2 { font-size: 1.35rem; margin: 2.5rem 0 .75rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; }
+  p { margin: 0 0 1rem; }
+  .lead { color: var(--muted); margin-bottom: 1.5rem; }
+  a { color: var(--link); word-break: break-word; }
+  nav ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+  nav li { margin: .2rem 0; }
+  ol.steps { padding-left: 0; margin: 0 0 1.25rem; list-style: none; counter-reset: step; }
+  ol.steps > li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 1rem 2.6rem;
+    margin: 0;
+    break-inside: avoid;
+  }
+  ol.steps > li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: .05rem;
+    width: 1.9rem; height: 1.9rem; border-radius: 50%;
+    border: 2px solid var(--text);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem;
+  }
+  ol.steps > li > p { margin: 0 0 .5rem; }
+  .see {
+    margin: .5rem 0 0;
+    padding: .55rem .8rem;
+    background: var(--see-bg);
+    border-left: 4px solid var(--see-line);
+    color: var(--see-text);
+    border-radius: 0 6px 6px 0;
+    font-size: .95rem;
+  }
+  .see strong { font-weight: 700; }
+  .type {
+    display: inline-block;
+    padding: .05rem .4rem;
+    background: var(--type-bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-family: Consolas, "Segoe UI Mono", Menlo, monospace;
+    font-size: .92em;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .note {
+    margin: 0 0 1.25rem;
+    padding: .7rem .9rem;
+    background: var(--warn-bg);
+    border-left: 4px solid var(--warn-line);
+    border-radius: 0 6px 6px 0;
+  }
+  ul { padding-left: 1.3rem; }
+  li { margin: .25rem 0; }
+  dl { margin: 0 0 1.25rem; }
+  dt { font-weight: 700; margin-top: 1rem; }
+  dd { margin: .25rem 0 0; }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+  @media print {
+    body { padding: 0; font-size: 11.5pt; color: #000; background: #fff; }
+    h2 { break-before: page; border: 0; margin-top: 0; }
+    h2:first-of-type { break-before: auto; }
+    nav { display: none; }
+    a { color: #000; text-decoration: none; }
+    .see { border-color: #000; background: #f1f1f1; color: #000; }
+    .note { border-color: #000; background: #f7f7f7; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Setup guide</h1>
+<p class="lead">Conversation tracker, step by step. Follow it alone, or with someone sitting beside you. Each step says what you should see when it has worked.</p>
+
+<p>The tracker lets you log every meeting or conversation once. Claude then keeps a record of who promised what and when, drafts your chase messages, and drafts your Monday review for the team. Claude never sends anything: everything it writes for other people is a draft that you send yourself. Your records and your notes stay in one folder on your laptop and are never uploaded.</p>
+
+<nav>
+<p><strong>Sections</strong></p>
+<ol>
+  <li><a href="#before">Before you start</a></li>
+  <li><a href="#files">Get the files</a></li>
+  <li><a href="#import">First run: bring in your history</a></li>
+  <li><a href="#log">After each meeting</a></li>
+  <li><a href="#chase">Chasing</a></li>
+  <li><a href="#monday">Monday: the weekly review</a></li>
+  <li><a href="#history">Asking about the past</a></li>
+  <li><a href="#update">Updating the template</a></li>
+  <li><a href="#wrong">If something goes wrong</a></li>
+</ol>
+</nav>
+
+<h2 id="before">1. Before you start</h2>
+<p>You need three things: Claude Code switched on for your account, the Claude desktop app, and your work sign-in. Allow a day for the first one if you have to ask.</p>
+<ol class="steps">
+  <li>
+    <p>Ask your Claude admin (the person who looks after Claude for your company) to confirm that <strong>Claude Code is enabled for your account</strong> on the company's Claude Enterprise plan. If they are not sure, they can check in the Claude admin settings under Claude Code, where it is switched on for the whole company or for named people.</p>
+    <p class="see"><strong>You will see:</strong> a yes from your admin. If it is a no, nothing below will work until it is turned on.</p>
+  </li>
+  <li>
+    <p>Install the <strong>Claude desktop app</strong> for Windows. Get it from <a href="https://claude.ai/download">claude.ai/download</a>, or from your company's software store if that is how apps are installed where you work.</p>
+    <p class="see"><strong>You will see:</strong> Claude in your Start menu.</p>
+  </li>
+  <li>
+    <p>Open the app and <strong>sign in with your work email</strong>, the same one you use for Claude at work. Do not use a personal account.</p>
+    <p class="see"><strong>You will see:</strong> the normal chat screen, signed in with your work account.</p>
+  </li>
+  <li>
+    <p>Click the <strong>Code</strong> tab in the app.</p>
+    <p class="see"><strong>You will see:</strong> a screen asking you to choose a folder, or a list of past sessions. If instead you see a message saying Claude Code is not available for your account, go back to step 1.</p>
+  </li>
+</ol>
+
+<h2 id="files">2. Get the files</h2>
+<ol class="steps">
+  <li>
+    <p>In your web browser go to <a href="https://github.com/tobysambles01/conversation-tracker">github.com/tobysambles01/conversation-tracker</a>. If someone emailed you the ZIP instead, save it to your Downloads folder and skip to step 3.</p>
+    <p class="see"><strong>You will see:</strong> a page with a list of files and a green <strong>Code</strong> button.</p>
+  </li>
+  <li>
+    <p>Click the green <strong>Code</strong> button, then <strong>Download ZIP</strong>.</p>
+    <p class="see"><strong>You will see:</strong> a file called <span class="type">conversation-tracker-main.zip</span> in your Downloads folder.</p>
+  </li>
+  <li>
+    <p>Right-click the ZIP file and choose <strong>Extract All</strong>. In the box that opens, change the destination to your <strong>Documents</strong> folder, then click <strong>Extract</strong>.</p>
+    <p class="see"><strong>You will see:</strong> a new folder in Documents called <span class="type">conversation-tracker-main</span>, containing <span class="type">README.md</span>, <span class="type">CLAUDE.md</span>, <span class="type">setup-guide.html</span>, and folders called <span class="type">records</span> and <span class="type">notes</span>. One more folder, <span class="type">.claude</span>, is there but hidden; that is normal.</p>
+  </li>
+  <li>
+    <p>If you like, rename the folder to <span class="type">conversation-tracker</span>. Either name works.</p>
+    <p class="see"><strong>You will see:</strong> the folder with its new name.</p>
+  </li>
+  <li>
+    <p>In the Claude app, on the <strong>Code</strong> tab, choose <strong>open a folder</strong> (the wording varies) and pick the folder you just extracted.</p>
+    <p class="see"><strong>You will see:</strong> the folder name at the top of a new session, and a box at the bottom where you type to Claude.</p>
+  </li>
+  <li>
+    <p><strong>Pick the model.</strong> Near the typing box there is a menu that names the model. Choose the most capable one your company gives you; if you are unsure which, ask your admin or leave the default.</p>
+    <p class="see"><strong>You will see:</strong> the model's name shown next to the typing box.</p>
+  </li>
+  <li>
+    <p>Type the following and press Enter: <span class="type">Help me fill in the settings in CLAUDE.md</span>. Claude asks for your name, your team's full names, your spelling, how you write dates in your notes, and your sign-off. Answer in plain words. When Claude asks permission to edit <span class="type">CLAUDE.md</span>, allow it.</p>
+    <p class="see"><strong>You will see:</strong> Claude confirming the settings are written. If you open <span class="type">CLAUDE.md</span>, the Settings section near the top shows your details and no square brackets.</p>
+  </li>
+</ol>
+<div class="note">Everything in <span class="type">records</span> and <span class="type">notes</span> is about your staff. It stays on your laptop. Never upload this folder to GitHub, a shared drive that others can see, or anywhere public. A copy in your own work OneDrive as a backup is fine if your company allows it.</div>
+
+<h2 id="import">3. First run: bring in your history</h2>
+<p>Do this once. It brings your whole history of meetings and actions across, oldest first, in batches that you approve one at a time. A long history takes a while; you can stop and carry on later.</p>
+<ol class="steps">
+  <li>
+    <p>Open your Word document of meeting notes. Save it as a <strong>.docx</strong> file if it is not one already: <strong>File → Save a Copy → Word Document (.docx)</strong>. Then copy that file into the <span class="type">notes</span> folder.</p>
+    <p class="see"><strong>You will see:</strong> the .docx file inside <span class="type">notes</span>. Your original stays where it was.</p>
+  </li>
+  <li>
+    <p>Open your Google Sheet of actions. Choose <strong>File → Download → Comma-separated values (.csv)</strong>. If the sheet has more than one tab you use, do this for each tab. Move the downloaded files into the <span class="type">notes</span> folder.</p>
+    <p class="see"><strong>You will see:</strong> one or more .csv files inside <span class="type">notes</span>.</p>
+  </li>
+  <li>
+    <p>In Claude Code, type <span class="type">/import</span> and press Enter.</p>
+    <p class="see"><strong>You will see:</strong> three questions in one message: the name of the Word document, the name of the sheet file, and whether to keep actions you dropped or cancelled.</p>
+  </li>
+  <li>
+    <p>Answer all three. Give the file names as they appear in <span class="type">notes</span>. For dropped actions, say <strong>keep them</strong>: they are marked "dropped" and give you the complete history.</p>
+    <p class="see"><strong>You will see:</strong> Claude reading the files. For a .docx file it may ask permission to unzip a temporary copy; allow it. It never changes your originals.</p>
+  </li>
+  <li>
+    <p>Claude shows a <strong>survey</strong> before it writes anything: how many meetings and actions it found, which of your sheet's columns go where, what your status words mean, every name it found with suggested merges (such as "Jordan", "Jordan E." and "JE" being one person), and whether your dates are month first or day first. Read it and correct anything wrong.</p>
+    <p class="see"><strong>You will see:</strong> the survey ending with a question asking you to confirm or correct it.</p>
+  </li>
+  <li>
+    <p>Claude then imports <strong>one batch at a time</strong>. For each batch it shows a summary and a list of anything it is unsure about, such as a possible duplicate or an action with no clear owner, each with a suggested answer. Answer what you can, then say <strong>yes</strong>. When Claude asks permission to edit the files in <span class="type">records</span>, allow it.</p>
+    <p class="see"><strong>You will see:</strong> a line saying the batch is saved, then the next batch. Anything you left unanswered is marked <span class="type">[check]</span> so you can come back to it.</p>
+  </li>
+  <li>
+    <p>When the last batch is in, Claude reports the totals.</p>
+    <p class="see"><strong>You will see:</strong> how many conversations and actions came across, how many are still marked <span class="type">[check]</span>, and a reminder that your original Word document and sheet are untouched. Keep those originals as a backup.</p>
+  </li>
+</ol>
+<p>If you stop part way, type <span class="type">/import</span> again another day and Claude offers to carry on from where it left off.</p>
+
+<h2 id="log">4. After each meeting</h2>
+<p>Log every meeting or conversation once, as soon as you can after it. Rough notes are fine.</p>
+<ol class="steps">
+  <li>
+    <p>Get your notes or transcript ready. Either have them ready to paste, or save the file into the <span class="type">notes</span> folder with the date first in its name, such as <span class="type">2026-11-05-jordan-one-to-one.docx</span>. Teams gives you a .docx or .vtt transcript file; both work.</p>
+    <p class="see"><strong>You will see:</strong> the file in <span class="type">notes</span>, if you used one.</p>
+  </li>
+  <li>
+    <p>In Claude Code, type <span class="type">/log</span>, then either paste your notes after it or type the file's name, and press Enter.</p>
+    <p class="see"><strong>You will see:</strong> Claude saying whether it read your text as typed notes or a transcript, and possibly a short numbered list of questions, such as who "we" means or which Friday "next Friday" is. Each question comes with Claude's best guess.</p>
+  </li>
+  <li>
+    <p>Answer the questions in plain words.</p>
+    <p class="see"><strong>You will see:</strong> a preview headed NEW CONVERSATION, then NEW ACTIONS, CHANGED ACTIONS and NOT RECORDED, ending with "Reply yes to save, or tell me what to change."</p>
+  </li>
+  <li>
+    <p>Read the preview. If something is wrong, say what, and Claude shows it again. When it is right, reply <span class="type">yes</span>. When Claude asks permission to edit the files in <span class="type">records</span>, allow it.</p>
+    <p class="see"><strong>You will see:</strong> one line such as "Saved C-0015 with 2 new actions (A-0042, A-0043) and 1 update (A-0031)."</p>
+  </li>
+</ol>
+<p>If someone tells you they have finished something, put that in your notes. Claude spots it and marks the action done.</p>
+
+<h2 id="chase">5. Chasing</h2>
+<ol class="steps">
+  <li>
+    <p>Type <span class="type">/chase</span> and press Enter. To chase one person only, add their name: <span class="type">/chase Jordan</span>.</p>
+    <p class="see"><strong>You will see:</strong> a short note just for you (for example, when you last chased someone), then one message per person, each starting "To:" and listing their open actions with due dates, overdue ones first.</p>
+  </li>
+  <li>
+    <p>Copy each message into Slack or an email, or read it out in person, and <strong>send it yourself</strong>. Claude never sends anything.</p>
+    <p class="see"><strong>You will see:</strong> the message in your own Slack or Outlook, ready for you to check and send.</p>
+  </li>
+  <li>
+    <p>Claude asks which of the messages you will send. Reply <span class="type">all</span>, or name the people.</p>
+    <p class="see"><strong>You will see:</strong> the list of actions that will get today's date as "last chased", then a line confirming it is saved.</p>
+  </li>
+</ol>
+
+<h2 id="monday">6. Monday: the weekly review</h2>
+<ol class="steps">
+  <li>
+    <p>On Monday, type <span class="type">/weekly-review</span> and press Enter.</p>
+    <p class="see"><strong>You will see:</strong> "Weekly review: Mon … to Sun …" for last week, a line of totals, then a section for each person in your team with what they got done, what they committed to, what slipped this week, what is running late from earlier, and what is still open.</p>
+  </li>
+  <li>
+    <p>Below the review, after a dividing line, there are notes just for you, such as actions with no due date. Do not paste those to the team.</p>
+    <p class="see"><strong>You will see:</strong> the notes clearly separated from the review.</p>
+  </li>
+  <li>
+    <p>Copy the review into your email or Slack message to the team. Edit it if you like, and <strong>send it yourself</strong>.</p>
+    <p class="see"><strong>You will see:</strong> plain text that pastes cleanly, with no odd formatting.</p>
+  </li>
+</ol>
+<p>For a different week, say so: <span class="type">/weekly-review for the week of 13 October</span>. To have the review waiting for you at 8am on Mondays, read <span class="type">automation.md</span> in the folder.</p>
+
+<h2 id="history">7. Asking about the past</h2>
+<p>There is no command for this. Ask in plain words, in the same place you type everything else. For example:</p>
+<ul>
+  <li>What did Jordan say about the hiring plan?</li>
+  <li>What has Sam committed to since 1 March?</li>
+  <li>What's overdue?</li>
+  <li>When did Priya first raise the rota problem?</li>
+  <li>Show me everything marked check.</li>
+</ul>
+<p class="see"><strong>You will see:</strong> a short list, newest first, with the date and conversation reference for each point, such as "3 Nov (C-0012)". Claude says whether it is quoting your notes or its summary. If the records do not hold the answer, it says so rather than guessing.</p>
+
+<h2 id="update">8. Updating the template</h2>
+<p>From time to time the template gets improvements; the <span class="type">CHANGELOG.md</span> file lists them. Your <span class="type">records</span> and <span class="type">notes</span> folders are yours and are never part of an update.</p>
+<ol class="steps">
+  <li>
+    <p>In your tracker folder, rename <span class="type">CLAUDE.md</span> to <span class="type">CLAUDE-old.md</span>. This keeps your settings safe.</p>
+    <p class="see"><strong>You will see:</strong> <span class="type">CLAUDE-old.md</span> in the folder and no <span class="type">CLAUDE.md</span>.</p>
+  </li>
+  <li>
+    <p>Download the new ZIP the same way as in section 2 and extract it somewhere else, such as your Downloads folder.</p>
+    <p class="see"><strong>You will see:</strong> a second <span class="type">conversation-tracker-main</span> folder in Downloads.</p>
+  </li>
+  <li>
+    <p>Open that new folder. Select everything in it <strong>except</strong> the <span class="type">records</span> and <span class="type">notes</span> folders, and copy it into your tracker folder. When Windows asks, choose <strong>Replace the files in the destination</strong>. If you cannot see the <span class="type">.claude</span> folder, turn on hidden items first: in File Explorer choose <strong>View → Show → Hidden items</strong>.</p>
+    <p class="see"><strong>You will see:</strong> the new files in your folder, and your own <span class="type">records</span> and <span class="type">notes</span> untouched.</p>
+  </li>
+  <li>
+    <p>Open the folder in Claude Code in a <strong>new session</strong> and type: <span class="type">Copy my settings from CLAUDE-old.md into CLAUDE.md</span>. Check the top of <span class="type">CLAUDE.md</span>. You can then delete <span class="type">CLAUDE-old.md</span> yourself if you like.</p>
+    <p class="see"><strong>You will see:</strong> your name, team and other settings back at the top of <span class="type">CLAUDE.md</span>.</p>
+  </li>
+  <li>
+    <p>Type <span class="type">/weekly-review</span>. If the update added a column to the tracker, Claude adds it to yours and tells you.</p>
+    <p class="see"><strong>You will see:</strong> either a normal review, or a line saying which column was added, then the review.</p>
+  </li>
+</ol>
+
+<h2 id="wrong">9. If something goes wrong</h2>
+<dl>
+  <dt>Claude says it does not know <span class="type">/log</span>, <span class="type">/chase</span>, <span class="type">/weekly-review</span> or <span class="type">/import</span></dt>
+  <dd>Claude Code reads the commands when a session starts, so this happens after an update or if you opened the wrong folder. Start a <strong>new session</strong> in the same folder and try again. Check the folder name at the top of the session is your tracker folder.</dd>
+
+  <dt>A file will not open</dt>
+  <dd>Check the file is inside the <span class="type">notes</span> folder and that you typed its name exactly, including the ending (.docx, .txt, .vtt or .csv). An old-style Word file ending in .doc needs saving as .docx first: <strong>File → Save a Copy → Word Document (.docx)</strong>. For a .docx file Claude may ask permission to unzip a temporary copy; allow it. If it still fails, open the document in Word and save a copy as <strong>Plain Text (.txt)</strong> into <span class="type">notes</span>.</dd>
+
+  <dt>The Code tab says Claude Code is not available</dt>
+  <dd>Claude Code is not enabled for your account. Ask your Claude admin to enable it (section 1, step 1). Nothing else is wrong.</dd>
+
+  <dt>Claude asks for permission</dt>
+  <dd>Claude Code asks before it edits files in your folder or runs a step on your laptop. Allowing it to edit <span class="type">records</span> and <span class="type">CLAUDE.md</span> is normal. It should never ask to send an email or a message; if it ever does, say no and tell it to give you the text instead.</dd>
+
+  <dt>The tracker looks broken, or will not open in Excel</dt>
+  <dd>Type: <span class="type">Check tracker.csv has eleven columns on every row and fix it</span>, and approve the fix. If you edited the tracker in Excel, Excel may have changed the dates; Claude can put them back to the 2026-11-07 style.</dd>
+
+  <dt>Claude seems confused or has lost track</dt>
+  <dd>Start a new session. Everything Claude knows is in the files, so nothing is lost.</dd>
+
+  <dt>Getting back to a clean state</dt>
+  <dd>Move your whole tracker folder somewhere else, such as your Desktop, but do not delete it. Extract a fresh copy of the ZIP into Documents, then copy your <span class="type">records</span> and <span class="type">notes</span> folders from the old folder into the new one, replacing the template's versions. Fill in the settings again (section 2, step 7). Your history is all in those two folders.</dd>
+</dl>
+
+<footer>
+<p>This guide follows <span class="type">README.md</span> in the same folder, which has the full detail. Nothing here sends anything on your behalf: Claude drafts, you send.</p>
+</footer>
+
+</main>
+</body>
+</html>
