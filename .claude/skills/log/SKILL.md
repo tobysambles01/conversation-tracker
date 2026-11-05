@@ -64,6 +64,7 @@ Only after the manager says yes, save as described under "Saving changes" in CLA
 - Add new rows at the end of `tracker.csv`.
 - New rows have Status `open` and a blank Date closed. If the action has a due date, put it in both Due and Original due; if not, leave both blank.
 - When a deadline moves, change Due only. Never change Original due once it has a date. If Original due is still blank (the action had no date until now), fill it with the same date as Due.
+- Change Original due only when the manager explicitly asks you to correct it because it was recorded wrongly. Then add a note in the standard wording: `2026-11-06: original due corrected from 2026-11-07 to 2026-11-05 at the manager's request`.
 - For changed rows: update Status or Due, and add a note in the standard wording, for example `2026-11-06: done (C-0015)` or `2026-11-06: due moved from 2026-11-07 to 2026-11-14 (C-0015)`.
 - Whenever Status becomes `done` or `dropped`, fill Date closed: the date it was actually finished or dropped if the material says ("sent it on Tuesday"), otherwise the conversation date. If a closed action is reopened, set Status back to `open`, clear Date closed and add a `reopened` note.
 - Check the tracker is still valid CSV with eleven columns on every row.

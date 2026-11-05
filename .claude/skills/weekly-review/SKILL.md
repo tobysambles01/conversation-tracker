@@ -27,21 +27,27 @@ Describe the week as it stood at the end of its Sunday, even if you are running 
 
 - Leave out actions with a Date raised after that Sunday.
 - Treat an action whose Date closed is after that Sunday as still open for this review.
+- Ignore any "due moved" note dated after that Sunday. For this review the due date is the "from" date in the earliest such note. That move belongs to the next review.
+
+A deadline move is found from the dated `due moved` notes in the Notes column, never by comparing Due with Original due.
 
 Then put each action in exactly one group, using the first group it fits:
 
 1. **Done:** Status `done` and Date closed is within the week. If it was also raised this week, add "(new this week)".
 2. **Dropped:** Status `dropped` and Date closed is within the week.
-3. **Slipped:** Status `open` and either Due is later than Original due (the deadline has been pushed back), or Due is on or before the Sunday that ends the week (it is overdue). Show both dates when they differ: "Was due Fri 30 Oct, now Fri 6 Nov." When they are the same: "Was due Fri 30 Oct."
-4. **Committed this week:** Status `open` and Date raised is within the week.
-5. **Still open:** every other open action.
+3. **Slipped this week:** still open at the end of the week, and either a "due moved" note is dated within the week, or the due date fell within the week and the action was not closed by the Sunday. If it was also raised this week, add "(new this week)".
+4. **Running late:** still open, and either a "due moved" note is dated before the Monday, or the due date is before the Monday. These slipped in an earlier week and are still not closed.
+5. **Committed this week:** Status `open` and Date raised is within the week.
+6. **Still open:** every other open action.
+
+For Slipped this week and Running late, show the dates: "Was due Fri 30 Oct, now Fri 6 Nov." when the deadline moved (the "from" date of the first move and the current due date), or "Was due Fri 30 Oct." when it did not.
 
 ## 4. Write the review
 
 Use the weekly review format in CLAUDE.md:
 
-- One line at the top with the totals across everyone in the review: new commitments (the Committed this week group plus anything marked "new this week"), done, slipped, and open in total (every action still open at the end of the week, whichever group it is in).
-- One section per person, name in capitals. Inside it: Done, Committed this week, Slipped, Still open, Dropped. Leave out any heading with nothing under it. If a person had nothing at all, write "Nothing logged this week."
+- One line at the top with the totals across everyone in the review: new commitments (the Committed this week group plus anything marked "new this week"), done, slipped this week, running late, and open in total (every action still open at the end of the week, whichever group it is in).
+- One section per person, name in capitals. Inside it: Done, Committed this week, Slipped this week, Running late, Still open, Dropped. Leave out any heading with nothing under it. If a person had nothing at all, write "Nothing logged this week."
 - Each action on one line, starting with a verb, with its due date written like "Fri 7 Nov".
 - Plain text only, so it pastes cleanly into email or Slack.
 - Do not copy anything from the Notes column into the review.

@@ -115,7 +115,8 @@ Type `/weekly-review`. Claude drafts the review of the previous Monday to Sunday
 
 - what they **committed to** that week;
 - what they got **done**;
-- what **slipped** past its due date;
+- what **slipped this week** (the deadline moved or passed during the week);
+- what is **running late** (it slipped in an earlier week and is still not done);
 - what is **still open**.
 
 It is plain text, so it pastes cleanly into an email or a Slack message. Read it, edit it if you like, and send it yourself. Underneath, Claude adds a few notes just for you, such as actions with no due date.

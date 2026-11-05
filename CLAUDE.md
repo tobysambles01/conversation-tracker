@@ -65,7 +65,7 @@ For transcripts: the key points, each with the speaker's name, and short quotes 
 
 ### Tracker (`tracker.csv`)
 
-One row per action. Rows are never deleted: finished actions stay with status `done` or `dropped`, so the history is kept. Columns, in this order:
+One row per action. Rows are never deleted: finished actions stay with status `done` or `dropped`, so the history is kept. Columns, in this order (if any of them is missing from the tracker, because it was made with an older copy of this template, add it empty in the right place before doing anything else, and tell the manager):
 
 | Column | What goes in it |
 |---|---|
@@ -75,7 +75,7 @@ One row per action. Rows are never deleted: finished actions stay with status `d
 | Date raised | The date they committed to it (YYYY-MM-DD). |
 | Source conversation | The conversation ID, for example C-0012. For imported rows with no matching conversation: "Imported from sheet". |
 | Due | The current due date (YYYY-MM-DD), or blank if the manager confirmed there is no date. Changes when a deadline is moved. |
-| Original due | The first due date the action ever had (YYYY-MM-DD). Set once, at the moment the action first gets a due date (blank until then), and never changed after that, even when Due moves. |
+| Original due | The first due date the action ever had (YYYY-MM-DD). Set once, at the moment the action first gets a due date (blank until then), and never changed after that, even when Due moves. The one exception: when the manager explicitly asks for it to be corrected because it was recorded wrongly. Then change it and add a note: `2026-11-06: original due corrected from 2026-11-07 to 2026-11-05 at the manager's request`. |
 | Status | Exactly one of: `open`, `done`, `dropped`. |
 | Date closed | Blank while the action is open. Filled (YYYY-MM-DD) when Status becomes `done` or `dropped`: the date it was actually finished or dropped if the notes or transcript say, otherwise the date of the conversation where it was reported. If an action is reopened, clear it. |
 | Last chased | The date the manager last chased this action (YYYY-MM-DD), or blank. |
@@ -86,7 +86,7 @@ The weekly review uses Date closed to decide what was done or dropped in a given
 - `2026-11-06: done (C-0014)` when an action is finished (and Date closed is filled).
 - `2026-11-06: dropped (C-0014) reason` when an action is abandoned (and Date closed is filled).
 - `2026-11-06: reopened (C-0014)` when a closed action turns out not to be finished (and Date closed is cleared).
-- `2026-11-06: due moved from 2026-11-07 to 2026-11-14 (C-0014)` when a deadline changes (Due changes; Original due does not).
+- `2026-11-06: due moved from 2026-11-07 to 2026-11-14 (C-0014)` when a deadline changes (Due changes; Original due does not). The weekly review reads these dated notes to tell which week an action slipped in.
 - `[private]` anywhere in the notes keeps the action out of the weekly review (it can still appear in that person's own chase message).
 - `[check] reason` marks something the manager still needs to confirm, such as an unclear owner or a possible duplicate.
 
@@ -190,15 +190,17 @@ Order: overdue first, then by due date, then actions with no date. Keep the tone
 ```
 Weekly review: Mon 27 Oct to Sun 2 Nov 2026
 
-This week: 7 new commitments, 5 done, 2 slipped, 11 open in total.
+This week: 7 new commitments, 5 done, 2 slipped this week, 1 running late, 11 open in total.
 
 JORDAN ELLIS
 Done
 - Sent the revised hiring plan to finance (due Fri 31 Oct).
 Committed this week
 - Share last year's offsite budget. Due Wed 12 Nov.
-Slipped
+Slipped this week
 - Draft the Q1 rota. Was due Thu 30 Oct, now Fri 7 Nov.
+Running late
+- Write up the supplier review. Was due Fri 10 Oct, now Fri 14 Nov.
 Still open
 - Update the onboarding checklist. Due Fri 21 Nov.
 
@@ -206,4 +208,4 @@ SAM OKAFOR
 ...
 ```
 
-Within each person: Done, Committed this week, Slipped, Still open, Dropped. Leave out any heading with nothing under it. If a person had nothing at all, write "Nothing logged this week."
+Within each person: Done, Committed this week, Slipped this week (the deadline moved or passed during the week), Running late (it slipped in an earlier week and is still open), Still open, Dropped. Leave out any heading with nothing under it. If a person had nothing at all, write "Nothing logged this week."
