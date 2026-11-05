@@ -157,6 +157,8 @@ A long history can take a while. If you stop part way, type `/import` again late
 
 From time to time this template gets improvements (see `CHANGELOG.md`). Your records and notes are yours and are never part of an update.
 
+Your copy must never be connected to git or GitHub. Git can be told to skip `notes/`, but not `records/`, because the blank templates ship in that folder. The ZIP download has no git connection, which is why it is the way to get and update the files.
+
 1. **Keep your settings.** In your `conversation-tracker` folder, rename `CLAUDE.md` to `CLAUDE-old.md`.
 2. **Download the new ZIP** the same way as in setup and extract it somewhere else, such as your Downloads folder.
 3. **Copy everything across except `records/` and `notes/`.** Open the new folder, select everything in it apart from those two folders, and copy it into your `conversation-tracker` folder. When Windows asks, choose **Replace the files in the destination**. Remember the `.claude` folder is hidden unless you have turned on hidden items. Never copy a new `records/` or `notes/` over yours.

@@ -1,0 +1,6 @@
+# The manager's own files never go into git.
+# notes/ is ignored, apart from its README.
+# records/ cannot be ignored: the blank templates ship in it.
+# So a copy in use must never be connected to git (see README.md).
+notes/*
+!notes/README.md
