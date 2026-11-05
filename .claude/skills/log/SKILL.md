@@ -1,6 +1,6 @@
 ---
 name: log
-description: Log a meeting or conversation from typed notes or a pasted transcript. Writes the conversation entry, adds or updates actions in the tracker, asks about unclear owners or dates, and shows every change before saving. Use when the manager types /log, says "log this", or pastes notes or a transcript from a meeting.
+description: Log a meeting or conversation from typed notes, a pasted transcript, or a file in the notes folder. Writes the conversation entry, adds or updates actions in the tracker, asks about unclear owners or dates, and shows every change before saving. Use when the manager types /log, says "log this", or pastes notes or a transcript from a meeting.
 ---
 
 # Log a conversation
@@ -9,7 +9,9 @@ This skill turns notes or a transcript from one meeting or conversation into a c
 
 ## 1. Get the material
 
-- If the manager typed or pasted text after the command, that is the material. If not, ask them to paste their notes or the transcript, or to give the file's location.
+- If the manager typed or pasted text after the command, that is the material.
+- If they gave a file name instead (`/log 2026-11-05-jordan.txt`, "log the file I just dropped in notes"), look for it in the `notes/` folder first, then at the path they gave. If it is not there, or several files could match, ask. Read it; never change, move or delete it. A `.vtt` or `.docx` file from Teams or a similar tool is normally a transcript. A `.docx` file is a compressed folder: if you cannot read it directly, copy it somewhere temporary outside this folder, unzip the copy, and read the text from `word/document.xml` inside it.
+- If they gave nothing, ask them to paste their notes or the transcript, or to put the file in `notes/` and tell you its name.
 - One conversation per log. If the material clearly covers two separate conversations, say so and offer to log them one after the other.
 
 ## 2. Work out what it is
@@ -26,7 +28,8 @@ Read `conversations.md` and `tracker.csv`. Note:
 
 - the highest conversation ID and the highest action ID in use, ignoring C-0000 and A-0000, so new IDs carry on from them;
 - every open action belonging to anyone in this conversation, so you can spot updates;
-- how people's names are already written, so you use the same form.
+- how people's names are already written, so you use the same form;
+- whether an entry with the same date and the same people already exists. If one does, show it and ask whether this is the same meeting before going on; a meeting is logged once.
 
 ## 4. Draft the entry
 
@@ -35,7 +38,7 @@ Read `conversations.md` and `tracker.csv`. Note:
 - **Who:** everyone who took part, full names in the form already used in the records, the manager included.
 - **Summary:** three to six sentences on what was discussed and decided.
 - **Notes as written:** typed notes exactly as written; for a transcript, the key points with speaker names and short quotes for decisions and promises.
-- **Commitments:** every promise to do something, by anyone, including the manager. Write each one starting with a verb. Work out due dates from the conversation date ("by Friday" means the Friday on or after that date). Things already done work backwards: "sent it Weds" means the Wednesday on or before the conversation date.
+- **Commitments:** every promise to do something, by anyone, including the manager. Write each one starting with a verb. Work out due dates from the conversation date ("by Friday" means the Friday on or after that date). Things already done work backwards: "sent it Weds" means the Wednesday on or before the conversation date. Read numeric dates (11/3) using the "Dates in my notes" setting. If the material holds no commitments at all (a briefing, a catch-up with nothing agreed), say so in the preview and write "None." under Commitments; the conversation is still logged.
 - **Updates to earlier actions:** anything in the material that finishes, drops or moves the deadline of an open action. Only match an existing action when it is clearly the same thing; if you are not sure, ask.
 
 ## 5. Ask about anything unclear
@@ -60,7 +63,7 @@ If the manager asks for changes, make them and show the preview again.
 
 Only after the manager says yes, save as described under "Saving changes" in CLAUDE.md:
 
-- Add the conversation entry at the end of `conversations.md`, ending with a `---` line.
+- Add the conversation entry at the end of `conversations.md`, ending with a `---` line. If the material came from a file, the Source line names it: "typed notes, notes/2026-11-05-jordan.txt".
 - Add new rows at the end of `tracker.csv`.
 - New rows have Status `open` and a blank Date closed. If the action has a due date, put it in both Due and Original due; if not, leave both blank.
 - When a deadline moves, change Due only. Never change Original due once it has a date. If Original due is still blank (the action had no date until now), fill it with the same date as Due.

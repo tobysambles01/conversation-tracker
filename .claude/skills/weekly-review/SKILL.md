@@ -21,7 +21,9 @@ This skill drafts the review the manager sends to their team each Monday. It rea
 
 ## 3. Sort each person's actions
 
-Use `tracker.csv`. Leave out the example row A-0000 and any row whose Notes contain `[private]`.
+Use `tracker.csv`. If it holds no real rows (only the header, or only the example A-0000), say the tracker is empty and stop; there is nothing to review yet.
+
+Leave out the example row A-0000, any row whose Notes contain `[private]`, and any row marked `[check]` (it is not confirmed yet, and the review goes to the team). List the `[check]` rows in the notes for the manager instead.
 
 Describe the week as it stood at the end of its Sunday, even if you are running the review later:
 
@@ -56,7 +58,7 @@ Use the weekly review format in CLAUDE.md:
 
 After the review, separated by a line, add a short note only the manager sees, if any of these apply:
 
-- actions marked `[check]` that are included and may need confirming first;
+- actions marked `[check]`, which were left out until the manager confirms them;
 - open actions with no due date;
 - team members with nothing logged for several weeks;
 - people with actions who are not in the Team setting (they are left out of the review).

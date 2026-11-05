@@ -11,9 +11,10 @@ This skill drafts chase messages from the tracker. It never sends them. The chas
 
 - If the manager named people ("/chase Jordan", "chase Sam and Priya"), chase only them.
 - If they said "overdue only" or similar, include only overdue actions.
-- Otherwise, chase everyone with at least one open action, except the manager.
+- Otherwise, chase everyone with at least one open action, except the manager and rows whose Person is `Unclear`.
 - Ignore the example row A-0000.
 - If a first name could match more than one person, ask which one.
+- If nobody has anything open, say so and stop.
 
 ## 2. Gather each person's actions
 

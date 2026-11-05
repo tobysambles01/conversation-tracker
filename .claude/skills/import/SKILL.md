@@ -13,19 +13,19 @@ This skill backfills both records from the manager's existing Word document of m
 
 Ask these together, in one message:
 
-1. **Where is the Word document?** It should be saved as .docx. (In Claude Code, the manager can drag the file into the window to paste its location. In a Project, they attach it to the chat.)
-2. **Where is the Google Sheet export?** In Google Sheets: File → Download → Comma-separated values (.csv). If the sheet has several tabs, each tab downloads separately; ask which tabs matter.
+1. **Where is the Word document?** It should be saved as .docx. The easiest way is to copy it into the `notes/` folder and give its name. (In a Project, they attach it to the chat.)
+2. **Where is the Google Sheet export?** In Google Sheets: File → Download → Comma-separated values (.csv). Same again: copy it into `notes/`. If the sheet has several tabs, each tab downloads separately; ask which tabs matter.
 3. **Should dropped or cancelled actions come across?** Either keep them, with Status `dropped`, so the history is complete (suggest this), or leave them out.
 
 ## 2. Check what is already in the records
 
-Read `conversations.md` and `tracker.csv`. If there are already real entries (anything other than C-0000 and A-0000), say how many and that imported items will be checked against them for duplicates. Imported items get new IDs carrying on from the highest in use.
+Read `conversations.md` and `tracker.csv`. If there are already real entries (anything other than C-0000 and A-0000), say how many and that imported items will be checked against them for duplicates, and suggest the manager copies the `records` folder somewhere safe before going on. Imported items get new IDs carrying on from the highest in use.
 
 If an earlier import was interrupted, find the latest imported conversation (Source ends "(imported from Word document)") and offer to carry on from the next date.
 
 ## 3. Read the originals
 
-- **Word document:** in a Project, read the attachment. In Claude Code, if you can't read a .docx directly, extract its text into a temporary file outside this folder using whatever is available on the computer. If that is not possible, ask the manager to open the document in Word and use File → Save a Copy → Plain Text (.txt), keeping the original.
+- **Word document:** in a Project, read the attachment. In Claude Code, if you can't read a .docx directly: a .docx file is a compressed folder. Copy it somewhere temporary outside this folder, unzip the copy, and read the text from `word/document.xml` inside it (the words sit between the tags; paragraphs are the `w:p` blocks). Never unzip or convert the original in place. If that doesn't work, ask the manager to open the document in Word and use File → Save a Copy → Plain Text (.txt) into `notes/`, keeping the original.
 - **Sheet export:** read the .csv. Work out which column holds what: person, action, date raised, due date, original or first due date, status, date completed or closed, last chased, notes, and anything else.
 
 ## 4. Report what you found and agree the ground rules
