@@ -2,6 +2,12 @@
 
 All notable changes to this template are listed here, newest first.
 
+## 1.5.0 · 2026-11-06
+
+- `setup-guide-mac.html`: a Mac version of the setup guide, with the same nine sections and "you will see" checks. It covers installing the app from a .dmg, Safari unzipping the download, showing hidden files with Cmd+Shift+full stop, allowing Claude to access the Documents folder (and the System Settings fix if refused), TextEdit's Make Plain Text, Save As .docx in Word for Mac, Cmd shortcuts, and a check on iCloud syncing of Documents.
+- `setup-guide.html` and `setup-guide-mac.html` each point to the other at the top.
+- `README.md`: names both guides under Setup and in the folder table; the setup and update steps note the Mac differences.
+
 ## 1.4.0 · 2026-11-05
 
 - `.gitignore`: ignores everything in `notes/` apart from its README. `records/` can't be ignored because the blank templates ship in it, so `README.md` now says a copy in use must never be connected to git, and the ZIP is the only route given (the `git clone` hint is gone).
