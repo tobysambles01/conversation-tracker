@@ -19,7 +19,8 @@ This is a template. Every name in it is invented.
 | File | What it is |
 |---|---|
 | `README.md` | This guide. |
-| `setup-guide.html` | A step-by-step setup guide you can open in your browser or print. Same content as this guide, one step at a time. |
+| `setup-guide.html` | A step-by-step setup guide for Windows that you can open in your browser or print. Same content as this guide, one step at a time. |
+| `setup-guide-mac.html` | The same step-by-step setup guide for Mac. |
 | `project-setup.md` | The fallback if you can't use Claude Code: setting this up in a claude.ai Project instead. Less tested. |
 | `CLAUDE.md` | The instructions Claude follows. You fill in a few settings at the top. |
 | `records/conversations.md` | Your log of conversations, one entry each. |
@@ -43,11 +44,13 @@ Once you start using this, the files in `records/` and `notes/` will hold notes 
 
 ## Setup
 
+For a hand-held version with a check after every step, open `setup-guide.html` (Windows) or `setup-guide-mac.html` (Mac) in your web browser.
+
 Claude Code runs on your laptop and works directly on the files in this folder, so your records update themselves when you approve a change.
 
 You will need Claude Code on your laptop and switched on for your Enterprise account. If you don't have it, ask your IT team or Claude admin.
 
-1. **Get the files.** Go to https://github.com/tobysambles01/conversation-tracker, click the green **Code** button, then **Download ZIP**. In your Downloads folder, right-click the ZIP and choose **Extract All**, and extract it into your Documents folder. You get a folder called `conversation-tracker-main`; rename it to `conversation-tracker` if you like. Use the ZIP even if you know git: your copy must never be connected to git (see "Updating the template").
+1. **Get the files.** Go to https://github.com/tobysambles01/conversation-tracker, click the green **Code** button, then **Download ZIP**. In your Downloads folder, right-click the ZIP and choose **Extract All**, and extract it into your Documents folder. (On a Mac, Safari unzips it for you: drag the folder from Downloads into Documents.) You get a folder called `conversation-tracker-main`; rename it to `conversation-tracker` if you like. Use the ZIP even if you know git: your copy must never be connected to git (see "Updating the template").
 2. **Open Claude Code in the folder.** In the Claude desktop app, open the **Code** tab and choose the folder you just extracted. The first time, sign in with your work account. Near where you type there is a model menu: pick the most capable model your company gives you. (If you use Claude Code in a terminal instead, go to the folder and type `claude`.)
 3. **Fill in your settings.** Type: `Help me fill in the settings in CLAUDE.md`. Claude asks for your name, your team's names, your preferred spelling and your sign-off, then writes them in. (You can also open `CLAUDE.md` in any text editor and fill in the square brackets yourself.)
 4. **Import your history** if you have some. See "Importing your history" below.
@@ -140,7 +143,7 @@ Your copy must never be connected to git or GitHub. Git can be told to skip `not
 
 1. **Keep your settings.** In your `conversation-tracker` folder, rename `CLAUDE.md` to `CLAUDE-old.md`.
 2. **Download the new ZIP** the same way as in setup and extract it somewhere else, such as your Downloads folder.
-3. **Copy everything across except `records/` and `notes/`.** Open the new folder, select everything in it apart from those two folders, and copy it into your `conversation-tracker` folder. When Windows asks, choose **Replace the files in the destination**. Remember the `.claude` folder is hidden unless you have turned on hidden items. Never copy a new `records/` or `notes/` over yours.
+3. **Copy everything across except `records/` and `notes/`.** Open the new folder, select everything in it apart from those two folders, and copy it into your `conversation-tracker` folder. When Windows asks, choose **Replace the files in the destination** (on a Mac, Finder asks too: choose **Replace**). Remember the `.claude` folder is hidden unless you have turned on hidden items. Never copy a new `records/` or `notes/` over yours.
 4. **Put your settings back.** Open Claude Code in the folder (a new session) and type: `Copy my settings from CLAUDE-old.md into CLAUDE.md`. Check the top of `CLAUDE.md`, then delete `CLAUDE-old.md` yourself if you like.
 5. **Check the records.** Type `/weekly-review`. If the new template added a column to the tracker, Claude adds it to yours and tells you.
 
